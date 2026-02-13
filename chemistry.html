@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Magic for Kids</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #ff7675 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .home-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .home-link:hover {
+            background: white;
+            color: #ff7675;
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .activity-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            color: #333;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        
+        .activity-card h2 {
+            color: #d63031;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.8em;
+        }
+        
+        .activity-card h3 {
+            color: #e17055;
+            margin: 15px 0 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .activity-card p, .activity-card li {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .activity-card ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .learning-goals {
+            background: #ffeaa7;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #fdcb6e;
+        }
+        
+        .learning-goals strong {
+            color: #d63031;
+        }
+        
+        .materials {
+            background: #dfe6e9;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #74b9ff;
+        }
+        
+        .materials strong {
+            color: #2d3436;
+        }
+        
+        .safety-note {
+            background: #fab1a0;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #d63031;
+        }
+        
+        .safety-note strong {
+            color: #2d3436;
+        }
+        
+        .time-badge {
+            display: inline-block;
+            background: #00b894;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            background: #6c5ce7;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        
+        .tips-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            color: #333;
+            margin-top: 30px;
+        }
+        
+        .tips-section h2 {
+            color: #d63031;
+            margin-bottom: 15px;
+        }
+        
+        .tips-section ul {
+            margin-left: 20px;
+        }
+        
+        .tips-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="home-link">← Back to Home</a>
+            <h1>🧪 Chemistry Magic Lab ✨</h1>
+            <p class="subtitle">Amazing Reactions with Household Items!</p>
+            <p style="font-size: 0.9em; opacity: 0.9;">Ages 5-7 • Safe & Simple</p>
+        </div>
+        
+        <div class="activities-grid">
+            <!-- Volcano Eruption -->
+            <div class="activity-card">
+                <h2><span class="icon">🌋</span>Baking Soda Volcano</h2>
+                <p>Create a fizzing, bubbling eruption like a real volcano!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Build a volcano shape with clay or playdough around a small cup</li>
+                    <li>Put 2 tablespoons baking soda in the cup</li>
+                    <li>Add a squirt of dish soap and red food coloring</li>
+                    <li>Pour in vinegar and watch it erupt!</li>
+                    <li>Add more vinegar to keep the eruption going</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Baking soda, vinegar, dish soap, red food coloring, small cup, clay/playdough, tray to catch overflow
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Acid-base reaction! Vinegar (acid) + baking soda (base) = carbon dioxide gas (bubbles)
+                </div>
+                
+                <div class="safety-note">
+                    <strong>Safety:</strong> Do this outside or in a tray - it can get messy! Wash hands after.
+                </div>
+                
+                <span class="time-badge">⏱️ 15-20 minutes</span>
+                <span class="difficulty-badge">⭐ Easy</span>
+            </div>
+            
+            <!-- Magic Milk -->
+            <div class="activity-card">
+                <h2><span class="icon">🌈</span>Magic Dancing Milk</h2>
+                <p>Watch colors swirl and dance like magic in milk!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Pour milk into a shallow dish (fill about 1 inch deep)</li>
+                    <li>Add drops of different food coloring around the milk</li>
+                    <li>Dip a cotton swab in dish soap</li>
+                    <li>Touch the soapy swab to the milk surface</li>
+                    <li>Watch the colors explode and swirl!</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Whole milk (works best), food coloring (3-4 colors), dish soap, shallow dish or plate, cotton swabs
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Soap breaks surface tension and mixes with milk fats, making molecules move and colors swirl!
+                </div>
+                
+                <span class="time-badge">⏱️ 10-15 minutes</span>
+                <span class="difficulty-badge">⭐ Easy</span>
+            </div>
+            
+            <!-- Invisible Ink -->
+            <div class="activity-card">
+                <h2><span class="icon">🕵️</span>Secret Invisible Ink</h2>
+                <p>Write secret messages that only appear with heat!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Squeeze lemon juice into a small bowl</li>
+                    <li>Dip a cotton swab or paintbrush in the juice</li>
+                    <li>Write a message on white paper</li>
+                    <li>Let the paper dry completely (looks blank!)</li>
+                    <li>Adult: Hold paper near a warm light bulb to reveal message</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Lemon juice, white paper, cotton swab or small paintbrush, lamp with incandescent bulb (or iron)
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Lemon juice oxidizes (turns brown) when heated because it contains carbon compounds
+                </div>
+                
+                <div class="safety-note">
+                    <strong>Safety:</strong> Adult must handle the heat source! Keep paper moving, don't let it get too hot.
+                </div>
+                
+                <span class="time-badge">⏱️ 20-25 minutes</span>
+                <span class="difficulty-badge">⭐⭐ Medium</span>
+            </div>
+            
+            <!-- Bouncy Egg -->
+            <div class="activity-card">
+                <h2><span class="icon">🥚</span>Rubber Bouncy Egg</h2>
+                <p>Turn a regular egg into a see-through, bouncy ball!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Place a raw egg in a jar</li>
+                    <li>Cover completely with white vinegar</li>
+                    <li>Wait 24-48 hours (check every few hours)</li>
+                    <li>Watch bubbles form on the shell</li>
+                    <li>Carefully remove egg - shell is gone, it's rubbery!</li>
+                    <li>Gently bounce it from a few inches high</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Raw egg, white vinegar, clear jar with lid, patience!
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Vinegar (acid) dissolves calcium carbonate (eggshell), leaving the rubbery membrane
+                </div>
+                
+                <div class="safety-note">
+                    <strong>Safety:</strong> Egg might break and be messy. Do over sink. Wash hands well!
+                </div>
+                
+                <span class="time-badge">⏱️ 5 min setup + 24-48 hours wait</span>
+                <span class="difficulty-badge">⭐ Easy</span>
+            </div>
+            
+            <!-- Color Changing Cabbage -->
+            <div class="activity-card">
+                <h2><span class="icon">🥬</span>Color-Changing Cabbage Juice</h2>
+                <p>Make a magic potion that changes colors!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Chop red cabbage and boil in water for 10 minutes</li>
+                    <li>Strain out cabbage, keep the purple juice</li>
+                    <li>Pour juice into several clear cups</li>
+                    <li>Add lemon juice to one cup (turns pink!)</li>
+                    <li>Add baking soda to another (turns blue/green!)</li>
+                    <li>Try other liquids: vinegar, soap, salt water</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Red cabbage, water, pot, strainer, clear cups, test liquids (lemon juice, baking soda, vinegar, dish soap)
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Cabbage juice is a pH indicator! Acids turn it pink/red, bases turn it blue/green
+                </div>
+                
+                <div class="safety-note">
+                    <strong>Safety:</strong> Adult helps with boiling water. Let juice cool before kids handle it.
+                </div>
+                
+                <span class="time-badge">⏱️ 25-35 minutes</span>
+                <span class="difficulty-badge">⭐⭐ Medium</span>
+            </div>
+            
+            <!-- Fizzy Lemonade -->
+            <div class="activity-card">
+                <h2><span class="icon">🍋</span>Fizzy Lemonade Science</h2>
+                <p>Make lemonade that fizzes and bubbles!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Squeeze 2 lemons into a cup</li>
+                    <li>Add 1 cup water and 2 tablespoons sugar, stir</li>
+                    <li>Add 1 teaspoon baking soda</li>
+                    <li>Watch it fizz up!</li>
+                    <li>Taste it - it's sweet, sour, and fizzy!</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Fresh lemons, water, sugar, baking soda, cup, spoon
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Lemon juice (citric acid) reacts with baking soda to make carbon dioxide bubbles - just like soda!
+                </div>
+                
+                <span class="time-badge">⏱️ 10 minutes</span>
+                <span class="difficulty-badge">⭐ Easy</span>
+            </div>
+            
+            <!-- Walking Water -->
+            <div class="activity-card">
+                <h2><span class="icon">💧</span>Walking Water Rainbow</h2>
+                <p>Watch colored water "walk" between cups to make a rainbow!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Set up 7 cups in a line</li>
+                    <li>Fill cups 1, 3, 5, 7 with water</li>
+                    <li>Add red food coloring to cup 1, yellow to 3, blue to 5, green to 7</li>
+                    <li>Place paper towels between all cups (folded strips)</li>
+                    <li>Wait 1-2 hours - water climbs up and creates new colors!</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> 7 clear cups, water, food coloring (red, yellow, blue, green), paper towels
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Capillary action and cohesion! Water molecules stick together and climb up the paper towel
+                </div>
+                
+                <span class="time-badge">⏱️ 10 min setup + 1-2 hours wait</span>
+                <span class="difficulty-badge">⭐ Easy</span>
+            </div>
+            
+            <!-- Crystal Garden -->
+            <div class="activity-card">
+                <h2><span class="icon">💎</span>Salt Crystal Garden</h2>
+                <p>Grow sparkly crystals overnight!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Boil 1 cup of water (adult helps)</li>
+                    <li>Add salt and stir until no more dissolves</li>
+                    <li>Pour into a shallow dish</li>
+                    <li>Add food coloring (optional)</li>
+                    <li>Place pipe cleaners or string in the solution</li>
+                    <li>Wait 24 hours - crystals will grow!</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Table salt (lots!), water, pot, shallow dish, pipe cleaners or string, food coloring (optional)
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Supersaturation and crystallization! As water evaporates, salt molecules arrange into crystal patterns
+                </div>
+                
+                <div class="safety-note">
+                    <strong>Safety:</strong> Adult handles boiling water. Don't drink the salt water!
+                </div>
+                
+                <span class="time-badge">⏱️ 15 min setup + 24 hours wait</span>
+                <span class="difficulty-badge">⭐⭐ Medium</span>
+            </div>
+            
+            <!-- Oobleck -->
+            <div class="activity-card">
+                <h2><span class="icon">👾</span>Oobleck: Liquid or Solid?</h2>
+                <p>Make goo that's both a liquid AND a solid at the same time!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Mix 2 cups cornstarch with 1 cup water in a bowl</li>
+                    <li>Stir with hands (it's tricky!)</li>
+                    <li>Punch it hard - it's solid!</li>
+                    <li>Touch it gently - it's liquid!</li>
+                    <li>Add food coloring for colorful goo</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Cornstarch, water, large bowl, food coloring (optional), tray or plastic tablecloth
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Non-Newtonian fluid! Particles get stuck when hit fast (solid) but flow when moved slowly (liquid)
+                </div>
+                
+                <div class="safety-note">
+                    <strong>Safety:</strong> Very messy! Do outside or cover table well. Don't pour down sink - throw in trash.
+                </div>
+                
+                <span class="time-badge">⏱️ 15-20 minutes</span>
+                <span class="difficulty-badge">⭐⭐ Medium</span>
+            </div>
+            
+            <!-- Balloon Blow-Up -->
+            <div class="activity-card">
+                <h2><span class="icon">🎈</span>Self-Inflating Balloon</h2>
+                <p>Watch a balloon magically inflate itself!</p>
+                
+                <h3>How to Do It:</h3>
+                <ul>
+                    <li>Pour vinegar into a plastic bottle (fill 1/4 full)</li>
+                    <li>Put 2 tablespoons baking soda in a balloon</li>
+                    <li>Carefully stretch balloon over bottle opening</li>
+                    <li>Lift balloon up so baking soda falls into vinegar</li>
+                    <li>Watch balloon inflate from the gas created!</li>
+                </ul>
+                
+                <div class="materials">
+                    <strong>Materials:</strong> Plastic bottle, vinegar, baking soda, balloon, funnel (helpful)
+                </div>
+                
+                <div class="learning-goals">
+                    <strong>Chemistry Concept:</strong> Chemical reaction creates carbon dioxide gas that fills the balloon!
+                </div>
+                
+                <span class="time-badge">⏱️ 10-15 minutes</span>
+                <span class="difficulty-badge">⭐ Easy</span>
+            </div>
+        </div>
+        
+        <div class="tips-section">
+            <h2>🧑‍🔬 Chemistry Safety & Tips</h2>
+            <ul>
+                <li><strong>Always supervise:</strong> Adult should be present for all experiments, especially with heat or boiling water</li>
+                <li><strong>Kitchen chemistry only:</strong> Only use food-safe materials for experiments kids might taste</li>
+                <li><strong>Protect surfaces:</strong> Use trays, newspapers, or plastic tablecloths - chemistry can be messy!</li>
+                <li><strong>Label everything:</strong> Help kids label their experiments so they remember what's what</li>
+                <li><strong>No drinking rule:</strong> Even safe materials shouldn't be eaten during experiments</li>
+                <li><strong>Clean up together:</strong> Washing hands and cleaning teaches good lab habits</li>
+                <li><strong>Ask predictions:</strong> "What do you think will happen?" builds scientific thinking</li>
+                <li><strong>Try variations:</strong> "What if we use more vinegar?" "Less baking soda?" Experiment!</li>
+                <li><strong>Take photos:</strong> Document the experiments - kids love seeing their "lab work"</li>
+                <li><strong>Explain simply:</strong> Use everyday words. "Fizzing means gas bubbles are forming!"</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

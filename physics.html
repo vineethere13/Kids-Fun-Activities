@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Fun for Kids</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover, .nav-btn.active {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .activity-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            color: #333;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        
+        .activity-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.8em;
+        }
+        
+        .activity-card h3 {
+            color: #764ba2;
+            margin: 15px 0 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .activity-card p, .activity-card li {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .activity-card ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .learning-goals {
+            background: #e0e7ff;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .learning-goals strong {
+            color: #4338ca;
+        }
+        
+        .materials {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .materials strong {
+            color: #92400e;
+        }
+        
+        .safety-note {
+            background: #fee2e2;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #dc2626;
+        }
+        
+        .safety-note strong {
+            color: #991b1b;
+        }
+        
+        .time-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            background: #8b5cf6;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        
+        .category-section {
+            display: none;
+        }
+        
+        .category-section.active {
+            display: block;
+        }
+        
+        .tips-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            color: #333;
+            margin-top: 30px;
+        }
+        
+        .tips-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .tips-section ul {
+            margin-left: 20px;
+        }
+        
+        .tips-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .nav-buttons {
+                gap: 10px;
+            }
+            
+            .nav-btn {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 Physics Fun Lab 🧪</h1>
+            <p class="subtitle">Amazing Experiments with Everyday Items!</p>
+            <p style="font-size: 0.9em; opacity: 0.9;">Ages 5-7 • Safe & Simple</p>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showCategory('all')">All Activities</button>
+            <button class="nav-btn" onclick="showCategory('light')">💡 Light</button>
+            <button class="nav-btn" onclick="showCategory('sound')">🔊 Sound</button>
+            <button class="nav-btn" onclick="showCategory('motion')">🏃 Motion</button>
+            <button class="nav-btn" onclick="showCategory('force')">💪 Force</button>
+            <button class="nav-btn" onclick="showCategory('gravity')">🌍 Gravity</button>
+        </div>
+        
+        <div class="category-section active" id="all">
+            <div class="activities-grid">
+                <!-- LIGHT ACTIVITIES -->
+                <div class="activity-card" data-category="light">
+                    <h2><span class="icon">💡</span>Rainbow in a Glass</h2>
+                    <p>Make a rainbow appear using just water and sunlight!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Fill a clear glass with water (almost full)</li>
+                        <li>Place it on a white piece of paper near a sunny window</li>
+                        <li>Hold the glass at different angles</li>
+                        <li>Watch for a rainbow to appear on the paper!</li>
+                        <li>Move the glass to make the rainbow bigger or smaller</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Clear glass, water, white paper, sunny window
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Light refraction - white light splits into colors when it bends through water, just like a prism!
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 10 minutes</span>
+                    <span class="difficulty-badge">⭐ Easy</span>
+                </div>
+                
+                <div class="activity-card" data-category="light">
+                    <h2><span class="icon">🔦</span>Shadow Puppet Theater</h2>
+                    <p>Explore how light travels in straight lines by making shadow shows!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Hang a white sheet or use a blank wall</li>
+                        <li>Place a flashlight or lamp behind the kids</li>
+                        <li>Make hand shapes: bunny, bird, dog</li>
+                        <li>Move closer/farther to change shadow size</li>
+                        <li>Create a story with shadow characters</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Flashlight or lamp, white sheet or wall, dark room
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Light travels in straight lines and creates shadows when blocked by objects
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 20-30 minutes</span>
+                    <span class="difficulty-badge">⭐ Easy</span>
+                </div>
+                
+                <!-- SOUND ACTIVITIES -->
+                <div class="activity-card" data-category="sound">
+                    <h2><span class="icon">🔊</span>Musical Water Glasses</h2>
+                    <p>Discover how vibrations make different sounds!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Line up 4-5 identical glasses</li>
+                        <li>Fill with different amounts of water</li>
+                        <li>Gently tap each glass with a spoon</li>
+                        <li>Listen to the different pitches (high/low sounds)</li>
+                        <li>Try playing a simple tune!</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> 4-5 identical glasses, water, metal spoon
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Sound is vibration - more water = slower vibrations = lower pitch. Less water = faster vibrations = higher pitch
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 15 minutes</span>
+                    <span class="difficulty-badge">⭐ Easy</span>
+                </div>
+                
+                <div class="activity-card" data-category="sound">
+                    <h2><span class="icon">📞</span>String Telephone</h2>
+                    <p>See how sound travels through materials!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Poke a small hole in the bottom of 2 paper cups</li>
+                        <li>Thread a long string through both holes</li>
+                        <li>Tie knots inside so string stays attached</li>
+                        <li>Pull string tight between two kids</li>
+                        <li>One whispers into their cup, other listens!</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> 2 paper cups, string (10-20 feet), pencil to poke holes
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Sound waves travel through solids! Vibrations move along the string from one cup to another
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 15-20 minutes</span>
+                    <span class="difficulty-badge">⭐ Easy</span>
+                </div>
+                
+                <!-- MOTION ACTIVITIES -->
+                <div class="activity-card" data-category="motion">
+                    <h2><span class="icon">🏎️</span>Ramp Races</h2>
+                    <p>Test how height affects speed!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Create a ramp using a board or cardboard</li>
+                        <li>Prop it at different heights (books work great!)</li>
+                        <li>Roll different objects: ball, toy car, can</li>
+                        <li>Which goes fastest? Does height matter?</li>
+                        <li>Try different surfaces: carpet, smooth floor</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Cardboard or board, books for height, various rolling objects, tape measure (optional)
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Potential energy converts to kinetic energy. Higher ramps = more speed! Friction slows things down
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 20-30 minutes</span>
+                    <span class="difficulty-badge">⭐⭐ Medium</span>
+                </div>
+                
+                <div class="activity-card" data-category="motion">
+                    <h2><span class="icon">🎯</span>Pendulum Painting</h2>
+                    <p>Create art while learning about swinging motion!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Poke a small hole in a paper cup bottom</li>
+                        <li>Tie string through the hole</li>
+                        <li>Fill cup with washable paint</li>
+                        <li>Hold string and swing over large paper on floor</li>
+                        <li>Paint drips out making cool patterns!</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Paper cup, string, washable paint, large paper, newspaper to protect floor
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Pendulums swing in predictable patterns. They keep swinging back and forth unless something stops them
+                    </div>
+                    
+                    <div class="safety-note">
+                        <strong>Safety:</strong> Do this outside or with lots of newspaper! Paint will drip everywhere (that's the fun part!)
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 25-35 minutes</span>
+                    <span class="difficulty-badge">⭐⭐ Medium</span>
+                </div>
+                
+                <!-- FORCE ACTIVITIES -->
+                <div class="activity-card" data-category="force">
+                    <h2><span class="icon">💨</span>Balloon Rocket Car</h2>
+                    <p>Use air pressure to power a speedy car!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Tape a straw lengthwise to a balloon</li>
+                        <li>Tape 4 bottle caps as wheels to a piece of cardboard</li>
+                        <li>Tape the balloon to the cardboard</li>
+                        <li>Blow up balloon, hold closed</li>
+                        <li>Let go and watch your car zoom!</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Balloon, cardboard, straw, 4 bottle caps, tape
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Newton's Third Law - when air pushes out backward, it pushes the car forward! Action and reaction forces
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 20-25 minutes</span>
+                    <span class="difficulty-badge">⭐⭐ Medium</span>
+                </div>
+                
+                <div class="activity-card" data-category="force">
+                    <h2><span class="icon">🧲</span>Magnetic Scavenger Hunt</h2>
+                    <p>Discover which materials magnets stick to!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Give each child a magnet</li>
+                        <li>Hunt around the house for magnetic items</li>
+                        <li>Make two piles: "Sticks" and "Doesn't Stick"</li>
+                        <li>Test: spoons, toys, paper, aluminum foil, coins</li>
+                        <li>What do magnetic things have in common?</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Strong magnets (fridge magnets work!), household items to test
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Magnetic force works through space. Only certain metals (iron, steel, nickel) are magnetic
+                    </div>
+                    
+                    <div class="safety-note">
+                        <strong>Safety:</strong> Keep magnets away from electronics, credit cards, and small children who might swallow them
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 15-20 minutes</span>
+                    <span class="difficulty-badge">⭐ Easy</span>
+                </div>
+                
+                <!-- GRAVITY ACTIVITIES -->
+                <div class="activity-card" data-category="gravity">
+                    <h2><span class="icon">🪂</span>Parachute Drop Test</h2>
+                    <p>See how air resistance fights against gravity!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Cut a square from a plastic bag or tissue paper</li>
+                        <li>Tie string to each corner</li>
+                        <li>Attach a small toy or eraser at the bottom</li>
+                        <li>Drop from high place (stairs work great!)</li>
+                        <li>Try different sizes - which falls slower?</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Plastic bag or tissue paper, string, scissors, small toy or eraser, tape
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Gravity pulls down, but air resistance pushes up! Bigger parachutes catch more air and fall slower
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 20-30 minutes</span>
+                    <span class="difficulty-badge">⭐⭐ Medium</span>
+                </div>
+                
+                <div class="activity-card" data-category="gravity">
+                    <h2><span class="icon">🍎</span>The Great Drop-Off</h2>
+                    <p>Test what falls faster - heavy or light things?</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Gather pairs: feather vs rock, ball vs paper</li>
+                        <li>Predict: which will hit ground first?</li>
+                        <li>Drop from same height at same time</li>
+                        <li>What happened? Was it surprising?</li>
+                        <li>Try crumpling paper into ball - does it fall faster now?</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Various objects of different weights (feather, rock, paper, ball, book)
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Gravity pulls everything at the same speed! But air resistance slows light, flat things more than heavy ones
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 10-15 minutes</span>
+                    <span class="difficulty-badge">⭐ Easy</span>
+                </div>
+                
+                <!-- BONUS: COMBINED CONCEPTS -->
+                <div class="activity-card" data-category="motion">
+                    <h2><span class="icon">🎪</span>Marble Maze Challenge</h2>
+                    <p>Build a path using gravity and motion!</p>
+                    
+                    <h3>How to Do It:</h3>
+                    <ul>
+                        <li>Cut paper towel tubes in half lengthwise</li>
+                        <li>Tape them to a wall or board at angles</li>
+                        <li>Connect tubes to create a marble run</li>
+                        <li>Drop marble at top and watch it race down!</li>
+                        <li>Add cups at bottom to catch the marble</li>
+                    </ul>
+                    
+                    <div class="materials">
+                        <strong>Materials:</strong> Paper towel or toilet paper tubes, tape, marbles, wall or cardboard backing, cups
+                    </div>
+                    
+                    <div class="learning-goals">
+                        <strong>Physics Concept:</strong> Combines gravity (pulls marble down) and motion (speed changes on slopes). Momentum keeps marble rolling!
+                    </div>
+                    
+                    <span class="time-badge">⏱️ 30-45 minutes</span>
+                    <span class="difficulty-badge">⭐⭐⭐ Advanced</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tips-section">
+            <h2>🎓 Teaching Tips for Physics Fun</h2>
+            <ul>
+                <li><strong>Ask "What if?":</strong> "What if we made it bigger? Higher? Heavier?" Encourage predictions!</li>
+                <li><strong>Let them fail:</strong> Failed experiments teach MORE than perfect ones. "Why didn't it work?"</li>
+                <li><strong>Use simple words:</strong> Instead of "friction," say "things that slow it down"</li>
+                <li><strong>Compare to their world:</strong> "Remember sliding at the playground? That's gravity!"</li>
+                <li><strong>Repeat with variations:</strong> Try the same experiment with different materials</li>
+                <li><strong>Document discoveries:</strong> Take photos or draw what happened</li>
+                <li><strong>Make it a competition:</strong> "Whose parachute falls slowest?" Kids love challenges!</li>
+                <li><strong>Safety first:</strong> Adult supervision for anything involving sharp objects or heights</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function showCategory(category) {
+            // Update button states
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide cards
+            const cards = document.querySelectorAll('.activity-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

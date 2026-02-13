@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Explorer Activities for Kids</title>
+    <title>Kids Fun Activities - Learn Through Play!</title>
     <style>
         * {
             margin: 0;
@@ -12,11 +12,10 @@
         }
         
         body {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            font-family: 'Segoe UI', 'Arial Rounded MT Bold', 'Comic Sans MS', cursive;
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3b6 100%);
             min-height: 100vh;
             padding: 20px;
-            color: white;
         }
         
         .container {
@@ -24,106 +23,224 @@
             margin: 0 auto;
         }
         
-        h1 {
+        /* Header Section */
+        .header {
             text-align: center;
-            font-size: 2.5em;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #2d6a4f;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         
-        .subtitle {
-            text-align: center;
+        .header .emoji {
             font-size: 1.2em;
-            margin-bottom: 30px;
-            opacity: 0.9;
         }
         
-        .activities-grid {
+        .header p {
+            font-size: 1.3em;
+            color: #52796f;
+            margin-bottom: 5px;
+        }
+        
+        .header .tagline {
+            font-size: 1.1em;
+            color: #74c69d;
+            font-style: italic;
+        }
+        
+        /* Category Grid */
+        .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 30px;
+            margin-bottom: 40px;
         }
         
-        .activity-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 25px;
-            color: #333;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .category-card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
             cursor: pointer;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
         }
         
-        .activity-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
         
-        .activity-card h2 {
-            color: #7e22ce;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
-        .icon {
+        .category-card:hover::before {
+            opacity: 1;
+        }
+        
+        .category-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .category-card h2 {
             font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #2d6a4f;
         }
         
-        .activity-card h3 {
-            color: #2a5298;
-            margin: 15px 0 10px 0;
+        .category-card p {
             font-size: 1.1em;
+            color: #52796f;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
         
-        .activity-card p, .activity-card li {
+        .activity-count {
+            display: inline-block;
+            background: #74c69d;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            background: #ffd166;
+            color: #52796f;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        /* Color themes for different categories */
+        .category-card.space {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e8f7 100%);
+        }
+        
+        .category-card.physics {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e8d4f7 100%);
+        }
+        
+        .category-card.chemistry {
+            background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%);
+        }
+        
+        .category-card.technology {
+            background: linear-gradient(135deg, #e6f9f5 0%, #d1f2eb 100%);
+        }
+        
+        .category-card.math {
+            background: linear-gradient(135deg, #ffe6f0 0%, #ffd6e8 100%);
+        }
+        
+        .category-card.biology {
+            background: linear-gradient(135deg, #f0ffe6 0%, #e0ffd4 100%);
+        }
+        
+        /* About Section */
+        .about-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-section h2 {
+            color: #2d6a4f;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: center;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            color: #2d6a4f;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .feature p {
+            color: #52796f;
             line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
+            color: #52796f;
+            margin-top: 30px;
+        }
+        
+        .footer p {
             margin-bottom: 10px;
         }
         
-        .activity-card ul {
-            margin-left: 20px;
-            margin-top: 10px;
+        .footer a {
+            color: #2d6a4f;
+            text-decoration: none;
+            font-weight: bold;
         }
         
-        .learning-goals {
-            background: #e0f2fe;
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 15px;
-            border-left: 4px solid #2a5298;
+        .footer a:hover {
+            color: #74c69d;
         }
         
-        .learning-goals strong {
-            color: #1e3c72;
-        }
-        
-        .materials {
-            background: #fef3c7;
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 10px;
-            border-left: 4px solid #f59e0b;
-        }
-        
-        .materials strong {
-            color: #92400e;
-        }
-        
-        .time-badge {
-            display: inline-block;
-            background: #10b981;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-top: 10px;
-        }
-        
-        .stars {
+        /* Decorative elements */
+        .floating-shapes {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -131,230 +248,196 @@
             left: 0;
             pointer-events: none;
             z-index: -1;
+            overflow: hidden;
         }
         
-        .star {
+        .shape {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
+            opacity: 0.15;
+            animation: float-shape 20s infinite ease-in-out;
+        }
+        
+        @keyframes float-shape {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(50px, -50px) rotate(120deg); }
+            66% { transform: translate(-30px, 30px) rotate(240deg); }
+        }
+        
+        .shape1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: #74c69d;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        
+        .shape2 {
+            top: 60%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: #ffd166;
             border-radius: 50%;
-            animation: twinkle 3s infinite;
+            animation-delay: -5s;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+        .shape3 {
+            bottom: 20%;
+            left: 20%;
+            width: 120px;
+            height: 120px;
+            background: #b5b8ff;
+            border-radius: 30% 70% 70% 30% / 70% 30% 30% 70%;
+            animation-delay: -10s;
         }
         
-        .tips-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 25px;
-            color: #333;
-            margin-top: 30px;
-        }
-        
-        .tips-section h2 {
-            color: #7e22ce;
-            margin-bottom: 15px;
-        }
-        
-        .tips-section ul {
-            margin-left: 20px;
-        }
-        
-        .tips-section li {
-            margin-bottom: 10px;
-            line-height: 1.6;
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header p {
+                font-size: 1.1em;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
+    <div class="floating-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
     
     <div class="container">
-        <h1>🚀 Space Explorer Activities 🌟</h1>
-        <p class="subtitle">Fun Science & Astronomy for Ages 5-7</p>
+        <div class="header">
+            <h1><span class="emoji">🎨🔬🚀</span> Kids Fun Activities <span class="emoji">🧪🎯🌟</span></h1>
+            <p>Learn Through Play!</p>
+            <p class="tagline">Hands-on STEM adventures for ages 5-7</p>
+        </div>
         
-        <div class="activities-grid">
-            <!-- Activity 1 -->
-            <div class="activity-card">
-                <h2><span class="icon">🌙</span>Moon Phases Cookie Game</h2>
-                <p>Kids create and "eat through" the phases of the moon using Oreo cookies!</p>
-                
-                <h3>How to Play:</h3>
-                <ul>
-                    <li>Give each child 8 Oreo cookies</li>
-                    <li>Show pictures of moon phases (new moon, crescent, half, full)</li>
-                    <li>Have them scrape the cream to match each phase</li>
-                    <li>Arrange cookies in order on a paper plate</li>
-                    <li>Talk about how the moon changes, then eat!</li>
-                </ul>
-                
-                <div class="materials">
-                    <strong>Materials:</strong> Oreo cookies, paper plates, plastic knives, moon phase pictures
-                </div>
-                
-                <div class="learning-goals">
-                    <strong>Learning:</strong> Moon phases, observation skills, patterns in nature
-                </div>
-                
-                <span class="time-badge">⏱️ 20-30 minutes</span>
+        <div class="categories-grid">
+            <!-- Space Activities -->
+            <a href="space.html" class="category-card space">
+                <span class="category-icon">🚀</span>
+                <h2>Space & Astronomy</h2>
+                <p>Explore planets, stars, and the moon with fun activities!</p>
+                <span class="activity-count">6 Activities</span>
+            </a>
+            
+            <!-- Physics Activities -->
+            <a href="physics.html" class="category-card physics">
+                <span class="category-icon">⚡</span>
+                <h2>Physics Fun</h2>
+                <p>Discover light, sound, motion, force, and gravity through experiments!</p>
+                <span class="activity-count">10 Activities</span>
+            </a>
+            
+            <!-- Chemistry - Coming Soon -->
+            <div class="category-card chemistry" style="cursor: not-allowed; opacity: 0.8;">
+                <span class="category-icon">🧪</span>
+                <h2>Chemistry Magic</h2>
+                <p>Mix, bubble, and react with safe household chemistry!</p>
+                <span class="status-badge">Coming Soon!</span>
             </div>
             
-            <!-- Activity 2 -->
-            <div class="activity-card">
-                <h2><span class="icon">☀️</span>Solar System Hopscotch</h2>
-                <p>A hopping journey through our solar system!</p>
-                
-                <h3>How to Play:</h3>
-                <ul>
-                    <li>Draw or tape a hopscotch path with 8 squares (one per planet)</li>
-                    <li>Label each square: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune</li>
-                    <li>Add the Sun at the start as a circle to stand in</li>
-                    <li>Kids hop from planet to planet saying fun facts</li>
-                    <li>Can toss a beanbag to random planets and share facts</li>
-                </ul>
-                
-                <div class="materials">
-                    <strong>Materials:</strong> Chalk or colored tape, planet pictures/drawings, beanbag (optional)
-                </div>
-                
-                <div class="learning-goals">
-                    <strong>Learning:</strong> Planet names and order, gross motor skills, memory
-                </div>
-                
-                <span class="time-badge">⏱️ 15-25 minutes</span>
+            <!-- Technology - Coming Soon -->
+            <div class="category-card technology" style="cursor: not-allowed; opacity: 0.8;">
+                <span class="category-icon">💻</span>
+                <h2>Technology & Coding</h2>
+                <p>Build, code, and create with simple tech projects!</p>
+                <span class="status-badge">Coming Soon!</span>
             </div>
             
-            <!-- Activity 3 -->
-            <div class="activity-card">
-                <h2><span class="icon">⭐</span>Constellation Flashlight Hunt</h2>
-                <p>Create a magical stargazing adventure indoors!</p>
-                
-                <h3>How to Play:</h3>
-                <ul>
-                    <li>Poke constellation patterns into black paper (Big Dipper, Orion, etc.)</li>
-                    <li>Cover flashlights with the papers using rubber bands</li>
-                    <li>Darken the room and project "stars" on walls/ceiling</li>
-                    <li>Kids search for constellations around the room</li>
-                    <li>Tell stories about each constellation they find</li>
-                </ul>
-                
-                <div class="materials">
-                    <strong>Materials:</strong> Flashlights, black construction paper, pushpins or thumbtacks, rubber bands, constellation templates
-                </div>
-                
-                <div class="learning-goals">
-                    <strong>Learning:</strong> Constellation shapes, storytelling, spatial awareness
-                </div>
-                
-                <span class="time-badge">⏱️ 25-35 minutes</span>
+            <!-- Math - Coming Soon -->
+            <div class="category-card math" style="cursor: not-allowed; opacity: 0.8;">
+                <span class="category-icon">🔢</span>
+                <h2>Math Adventures</h2>
+                <p>Count, measure, and solve puzzles in fun ways!</p>
+                <span class="status-badge">Coming Soon!</span>
             </div>
             
-            <!-- Activity 4 -->
-            <div class="activity-card">
-                <h2><span class="icon">🌍</span>Planet Size Playdough</h2>
-                <p>Roll and compare planets by size!</p>
-                
-                <h3>How to Play:</h3>
-                <ul>
-                    <li>Provide different colored playdough for each planet</li>
-                    <li>Show size comparison chart (use fruit sizes as guide)</li>
-                    <li>Kids roll balls to match relative sizes</li>
-                    <li>Line them up from smallest to largest</li>
-                    <li>Discuss: "Why is Jupiter so BIG? Why is Mercury tiny?"</li>
-                </ul>
-                
-                <div class="materials">
-                    <strong>Materials:</strong> Playdough (8 colors), planet size chart, tray or table space
-                </div>
-                
-                <div class="learning-goals">
-                    <strong>Learning:</strong> Size comparison, fine motor skills, planet characteristics
-                </div>
-                
-                <span class="time-badge">⏱️ 20-30 minutes</span>
-            </div>
-            
-            <!-- Activity 5 -->
-            <div class="activity-card">
-                <h2><span class="icon">🚀</span>Rocket Balloon Race</h2>
-                <p>Launch balloons like rockets and learn about propulsion!</p>
-                
-                <h3>How to Play:</h3>
-                <ul>
-                    <li>String fishing line across the room</li>
-                    <li>Attach straws to balloons with tape</li>
-                    <li>Thread line through straws</li>
-                    <li>Blow up balloons, hold closed, then release!</li>
-                    <li>Watch rockets zoom across the line</li>
-                    <li>Discuss: "What makes the rocket move?"</li>
-                </ul>
-                
-                <div class="materials">
-                    <strong>Materials:</strong> Balloons, drinking straws, tape, fishing line or string, scissors
-                </div>
-                
-                <div class="learning-goals">
-                    <strong>Learning:</strong> Basic physics (action/reaction), air pressure, rocket propulsion
-                </div>
-                
-                <span class="time-badge">⏱️ 15-25 minutes</span>
-            </div>
-            
-            <!-- Activity 6 -->
-            <div class="activity-card">
-                <h2><span class="icon">🌠</span>Space Freeze Dance</h2>
-                <p>Dance like planets, stars, and astronauts!</p>
-                
-                <h3>How to Play:</h3>
-                <ul>
-                    <li>Play space-themed music</li>
-                    <li>Call out space objects: "Dance like a spinning planet!"</li>
-                    <li>Kids move accordingly (spin, float, zoom, twinkle)</li>
-                    <li>When music stops, freeze in space pose</li>
-                    <li>First to move sits out (or does jumping jacks!)</li>
-                </ul>
-                
-                <div class="materials">
-                    <strong>Materials:</strong> Music player, space music, open space to move
-                </div>
-                
-                <div class="learning-goals">
-                    <strong>Learning:</strong> Following directions, creative movement, space vocabulary
-                </div>
-                
-                <span class="time-badge">⏱️ 10-15 minutes</span>
+            <!-- Biology - Coming Soon -->
+            <div class="category-card biology" style="cursor: not-allowed; opacity: 0.8;">
+                <span class="category-icon">🌱</span>
+                <h2>Nature & Biology</h2>
+                <p>Explore plants, animals, and the natural world!</p>
+                <span class="status-badge">Coming Soon!</span>
             </div>
         </div>
         
-        <div class="tips-section">
-            <h2>👩‍🏫 Teaching Tips</h2>
-            <ul>
-                <li><strong>Keep it simple:</strong> Focus on big ideas (planets go around the sun, stars are far away, moon changes shape)</li>
-                <li><strong>Use comparisons:</strong> "Jupiter is as big as 11 Earths!" or "The sun is like a giant lightbulb"</li>
-                <li><strong>Encourage questions:</strong> "What do you think?" validates their curiosity</li>
-                <li><strong>Mix active & quiet:</strong> Alternate high-energy activities with calmer ones</li>
-                <li><strong>Make it sensory:</strong> Touch, see, move, create - engages all learners</li>
-                <li><strong>Celebrate mistakes:</strong> "Scientists try lots of things! Let's try again!"</li>
-                <li><strong>Connect to their world:</strong> "Have you seen the moon at night? What shape was it?"</li>
-            </ul>
+        <div class="about-section">
+            <h2>Why Kids Love Learning Here! 🎉</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Use What You Have</h3>
+                    <p>All activities use simple household items - no expensive kits needed!</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">👐</div>
+                    <h3>Hands-On Fun</h3>
+                    <p>Kids learn best by doing. Touch, build, experiment, and play!</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Simple & Clear</h3>
+                    <p>Step-by-step instructions that kids (and parents!) can easily follow</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Real Science</h3>
+                    <p>Every activity teaches actual STEM concepts in kid-friendly ways</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Quick & Easy</h3>
+                    <p>Most activities take 15-30 minutes - perfect for short attention spans!</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>Safe & Tested</h3>
+                    <p>Age-appropriate activities designed for 5-7 year olds with safety in mind</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Made with ❤️ for curious young minds</strong></p>
+            <p>Have suggestions? Want to contribute activities? <a href="https://github.com/vineethere13/Kids-Fun-Activities">Visit our GitHub</a></p>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">© 2026 Kids Fun Activities • Free Educational Resources</p>
         </div>
     </div>
     
     <script>
-        // Create twinkling stars in background
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 100; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            starsContainer.appendChild(star);
-        }
+        // Add subtle animation to category cards on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.category-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
     </script>
 </body>
 </html>
