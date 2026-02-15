@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Materials - Learn Play Fun</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQMC722Q67"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CQMC722Q67');
+    </script>
+    <!-- End Google Analytics -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Arial Rounded MT Bold', 'Comic Sans MS', cursive;
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3b6 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .home-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2d6a4f;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .home-link:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #2d6a4f;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #52796f;
+            line-height: 1.6;
+        }
+        
+        .category-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-section h2 {
+            color: #2d6a4f;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #74c69d;
+            padding-bottom: 10px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border: 2px solid #a8e6cf;
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #74c69d;
+        }
+        
+        .product-card h3 {
+            color: #2d6a4f;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-size: 1.4em;
+            color: #52b788;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .rating {
+            color: #ffc107;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .product-card p {
+            color: #52796f;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .buy-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        
+        .info-box {
+            background: #e0f2fe;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0284c7;
+        }
+        
+        .info-box h3 {
+            color: #0c4a6e;
+            margin-bottom: 10px;
+        }
+        
+        .info-box p {
+            color: #075985;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="home-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>🛒 Recommended Materials & Kits</h1>
+            <p>Everything you need for amazing STEM adventures! We've hand-picked the best-rated products on Amazon.</p>
+        </div>
+        
+        <div class="info-box">
+            <h3>🎯 Why These Products?</h3>
+            <p>
+                We've selected products with 4.5+ star ratings, thousands of positive reviews, and features that work perfectly with our activities. 
+                <strong>As an Amazon Associate, we earn from qualifying purchases</strong> at no extra cost to you. Your support helps us create more free educational content!
+            </p>
+        </div>
+        
+        <!-- SCIENCE KITS -->
+        <div class="category-section">
+            <h2>🔬 Complete Science Kits</h2>
+            <p style="color: #52796f; margin-bottom: 20px;">Perfect for trying multiple experiments across chemistry, physics, and earth science!</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="badge">⭐ Best Seller</span>
+                    <h3>National Geographic Mega Science Lab</h3>
+                    <div class="price">~$40-50</div>
+                    <div class="rating">★★★★★ 4.7 (10,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 75+ experiments covering chemistry, earth science, magic tricks, and more. Includes real lab tools and a learning guide.</p>
+                    <p><strong>Perfect for:</strong> Kids who want variety and hands-on learning across multiple STEM areas.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">👶 Ages 4-8</span>
+                    <h3>Doctor Jupiter My First Science Kit</h3>
+                    <div class="price">~$30-40</div>
+                    <div class="rating">★★★★★ 4.6 (5,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 100+ experiments designed for younger kids. Safe, simple, and educational!</p>
+                    <p><strong>Perfect for:</strong> Beginners and younger children (ages 4-8) starting their science journey.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">🌋 Volcano Included</span>
+                    <h3>UNGLINGA 150 Experiments Science Kit</h3>
+                    <div class="price">~$35-45</div>
+                    <div class="rating">★★★★☆ 4.5 (8,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 150 experiments! Volcano eruption, crystal growing, chemistry reactions, and lab tools.</p>
+                    <p><strong>Perfect for:</strong> Kids who love chemistry and want massive variety in one kit.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MAGNETS & PHYSICS -->
+        <div class="category-section">
+            <h2>🧲 Magnets & Physics Tools</h2>
+            <p style="color: #52796f; margin-bottom: 20px;">Essential for exploring force, motion, and magnetism!</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="badge">🏆 Top Rated</span>
+                    <h3>Dowling Magnets Super Science Kit</h3>
+                    <div class="price">~$25-30</div>
+                    <div class="rating">★★★★★ 4.7 (2,000+ reviews)</div>
+                    <p><strong>What's included:</strong> Professional-quality neodymium magnets, iron filings, compasses, and activity booklet.</p>
+                    <p><strong>Perfect for:</strong> Magnetic scavenger hunts, force experiments, and learning about poles.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">💰 Budget Pick</span>
+                    <h3>4M Magnet Science Kit</h3>
+                    <div class="price">~$15-20</div>
+                    <div class="rating">★★★★☆ 4.5 (3,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 10 magnet experiments with instructions. Great starter kit!</p>
+                    <p><strong>Perfect for:</strong> Budget-conscious parents wanting quality without high cost.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">🎓 Educational</span>
+                    <h3>hand2mind Magnetic Science Kit</h3>
+                    <div class="price">~$20-25</div>
+                    <div class="rating">★★★★★ 4.6 (1,500+ reviews)</div>
+                    <p><strong>What's included:</strong> 9 experiments including compass building, levitation, and magnetic fields.</p>
+                    <p><strong>Perfect for:</strong> Learning physics concepts through hands-on experimentation.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TELESCOPES -->
+        <div class="category-section">
+            <h2>🔭 Telescopes for Space Exploration</h2>
+            <p style="color: #52796f; margin-bottom: 20px;">Bring the stars closer! Perfect companions for our space activities.</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="badge">🚀 NASA Brand</span>
+                    <h3>NASA Lunar Telescope for Kids</h3>
+                    <div class="price">~$35-45</div>
+                    <div class="rating">★★★★☆ 4.4 (3,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 90x magnification, tabletop tripod, multiple eyepieces. Perfect for moon viewing!</p>
+                    <p><strong>Perfect for:</strong> Observing moon phases, lunar craters, and learning about astronomy.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">⭐ Premium Choice</span>
+                    <h3>Celestron FirstScope 76mm</h3>
+                    <div class="price">~$60-70</div>
+                    <div class="rating">★★★★★ 4.5 (5,000+ reviews)</div>
+                    <p><strong>What's included:</strong> Table-top design inspired by Galileo. Great optics for moon, planets, and star clusters.</p>
+                    <p><strong>Perfect for:</strong> Serious young astronomers ready for quality equipment.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">💰 Best Value</span>
+                    <h3>ToyerBee Kids Telescope</h3>
+                    <div class="price">~$25-35</div>
+                    <div class="rating">★★★★☆ 4.3 (2,000+ reviews)</div>
+                    <p><strong>What's included:</strong> Portable telescope with compass. Easy to use and budget-friendly!</p>
+                    <p><strong>Perfect for:</strong> First-time stargazers and outdoor adventures.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CHEMISTRY SUPPLIES -->
+        <div class="category-section">
+            <h2>🧪 Chemistry Experiment Supplies</h2>
+            <p style="color: #52796f; margin-bottom: 20px;">Stock up on essentials for colorful reactions and fizzing fun!</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="badge">💎 Crystal Growing</span>
+                    <h3>National Geographic Amazing Chemistry Set</h3>
+                    <div class="price">~$35-45</div>
+                    <div class="rating">★★★★★ 4.6 (8,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 100+ experiments, crystal growing, color reactions, volcano, and lab tools.</p>
+                    <p><strong>Perfect for:</strong> Kids who love mixing, bubbling, and colorful chemistry!</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">🌈 Rainbow Colors</span>
+                    <h3>Wilton Food Coloring Set (12-pack)</h3>
+                    <div class="price">~$8-12</div>
+                    <div class="rating">★★★★★ 4.7 (15,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 12 vibrant colors for experiments like magic milk, pH testing, and more!</p>
+                    <p><strong>Perfect for:</strong> Adding color to chemistry experiments and art projects.</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">🛡️ Safety First</span>
+                    <h3>Kids Safety Goggles (4-pack)</h3>
+                    <div class="price">~$10-15</div>
+                    <div class="rating">★★★★★ 4.7 (3,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 4 pairs of adjustable, protective safety goggles for kids.</p>
+                    <p><strong>Perfect for:</strong> Protecting eyes during all science experiments. Safety first!</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CRAFT SUPPLIES -->
+        <div class="category-section">
+            <h2>🎨 General Craft & Activity Supplies</h2>
+            <p style="color: #52796f; margin-bottom: 20px;">Versatile supplies used across multiple activities!</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="badge">🌍 Planet Building</span>
+                    <h3>Play-Doh Super Color Pack (36-count)</h3>
+                    <div class="price">~$15-20</div>
+                    <div class="rating">★★★★★ 4.8 (20,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 36 cans of vibrant Play-Doh in assorted colors.</p>
+                    <p><strong>Perfect for:</strong> Planet size comparison, pendulum art, and creative building!</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">⭐ Glow Stars</span>
+                    <h3>Glow in the Dark Stars (500+ pack)</h3>
+                    <div class="price">~$12-18</div>
+                    <div class="rating">★★★★★ 4.6 (15,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 500+ glow-in-the-dark stars and planets for ceiling/walls.</p>
+                    <p><strong>Perfect for:</strong> Learning constellations, creating a starry bedroom, space activities!</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+                
+                <div class="product-card">
+                    <span class="badge">🎈 Essential Supply</span>
+                    <h3>Balloons Assorted Colors (100-pack)</h3>
+                    <div class="price">~$8-12</div>
+                    <div class="rating">★★★★★ 4.7 (10,000+ reviews)</div>
+                    <p><strong>What's included:</strong> 100 colorful balloons in various sizes.</p>
+                    <p><strong>Perfect for:</strong> Balloon rockets, self-inflating experiments, and party fun!</p>
+                    <a href="YOUR-AFFILIATE-LINK-HERE" class="buy-btn" target="_blank">View on Amazon →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-box" style="margin-top: 40px;">
+            <h3>💡 Shopping Tips</h3>
+            <p>
+                <strong>Start with one kit:</strong> Try a general science kit first to see what your child loves most!<br>
+                <strong>Check reviews:</strong> Read what other parents say - we've pre-selected high-rated items.<br>
+                <strong>Bundle & save:</strong> Many items work together - magnets + science kit = endless experiments!<br>
+                <strong>Prime eligible:</strong> Most items qualify for free 2-day shipping with Amazon Prime.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
